@@ -1,0 +1,7 @@
+.navbar .navbar-brand > img { 
+    height: 40px; 
+}
+
+body,html {
+    height: 100%;
+}
