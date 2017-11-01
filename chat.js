@@ -25,7 +25,7 @@ setUserStyle = function(user, key, value) {
 
 io.on('connection', function(socket){
   console.log('a user connected');
-  io.emit('user connect event', 'connected');
+  socket.broadcast.emit('user connect event', 'connected');
   socket.on('disconnect', function(){
     console.log('user disconnected');
     io.emit('user connect event', 'disconnected');
@@ -33,7 +33,8 @@ io.on('connection', function(socket){
   socket.on('chat message', function(user, msg){
     console.log('chat message: ' + user + ' said \"' + msg + '"');
     var style = getUserStyle(user);
-    io.emit('chat message', user, msg, style);
+    socket.emit('apply style', style);
+    socket.broadcast.emit('chat message', user, msg, style);
   });
   socket.on('setColor', function(user, value){
     console.log('setColor: ' + user + ', ' + value);
