@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Ofek Chat login</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script language="javascript" src="jquery.min.js"></script>
+        <script language="javascript" src="umd/popper.min.js"></script>
+        <script language="javascript" src="js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="stylesheets/style.css">        
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <a class="navbar-brand" href="index.html"><img src="images/OfekUnit.png" alt="OfekLogo"> OfekTwitter</a>            
+        </nav>
+
+        <main class="container" role="main" >
+            <div class="row">
+                <form action="" class="col-md-8 offset-md-2 my-4">
+                        <div class="form-group">
+                            <input class="form-control" id="username" placeholder="Enter username" required>
+                            <div class="invalid-feedback" id="username-feedback">
+                                Username already taken.
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary col-12">Submit</button>
+                        </div>
+                </form>
+            </div>
+        </main>
+
+        <script src="javascripts/login.js"></script>
+    </body>
+</html>

@@ -1,5 +1,11 @@
 $(function () {
 
+    if(!$.cookie('user')) {
+        document.location = 'login.html';
+    }
+
+    $("#username").html("Hello, " + $.cookie('user'));
+
     printError = function(message) {
         $('#chat').append(`
             <tr class="row">
@@ -18,7 +24,7 @@ $(function () {
             case 'setBold':
             case 'setItalic':
             case 'setBorder':
-                socket.emit(splitMessage[0], $('#message-user').val(), splitMessage[1]);
+                socket.emit(splitMessage[0], splitMessage[1]);
                 break;
             default:
                 throw("Illegal command");
@@ -29,7 +35,7 @@ $(function () {
 
     $('form').submit(function() {
         var messageBody = $("#message-field").val();
-        var username =  $('#message-user').val();
+        var username =  $.cookie("user");
         if(!messageBody) {
             printError('Empty message');
             return false;
@@ -54,7 +60,7 @@ $(function () {
         $('#chat').append(appendedMessage);
         scrollToBottom();
 
-        socket.emit('chat message', username, messageBody);
+        socket.emit('chat message', messageBody);
         $('#message-field').val('');
         return false;
     });
@@ -71,13 +77,13 @@ $(function () {
     });
     socket.on('apply style', function(rcvStyle){
         var style = rcvStyle;
-        var username =  $('#message-user').val();
+        var username = $.cookie("user");
         $('[username=' + username +']').attr("style",style);
     });
-    socket.on('user connect event', function(connectEvent){
+    socket.on('user connect event', function(user, connectEvent){
         $('#chat').append(`
             <tr class="row">
-                <td class="col text-center">A user ${connectEvent}</td>
+                <td class="col text-center">User ${user} ${connectEvent}</td>
             </tr>
         `); 
         scrollToBottom();
