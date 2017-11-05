@@ -1,0 +1,32 @@
+a {
+  color: #00B7FF;
+}
+
+.navbar .navbar-brand > img { 
+    height: 40px; 
+}
+
+body,html {
+    height: 100%;
+}
+
+#content {
+    overflow-y: auto;
+    flex: 2;
+    display: flex;
+}
+.vwrapper {
+  display: flex;
+  flex-direction: column;
+
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: stretch;
+
+  height: 100%;
+}
+
+table {
+    margin-bottom: 0 !important;
+}

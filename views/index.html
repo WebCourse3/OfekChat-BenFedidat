@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Ofek Chat</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script language="javascript" src="jquery.min.js"></script>
+        <script language="javascript" src="umd/popper.min.js"></script>
+        <script language="javascript" src="js/bootstrap.min.js"></script>
+        <script language="javascript" src="jquery.cookie.js"></script>
+        <link rel="stylesheet" href="css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="stylesheets/style.css">        
+    </head>
+    <body>
+        <div class="vwrapper" role="main" >
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+                <a class="navbar-brand" href="index.html"><img src="images/OfekUnit.png" alt="OfekLogo"> OfekTwitter</a> 
+                <div class="navbar-nav ml-auto text-white" id="username">
+                </div>           
+            </nav>
+            <main class="container" role="main" >
+                <form action="" class="m-3 messageForm row justify-content-center">
+                    <div class="input-group">
+                        <textarea class="form-control" rows="3" style="resize:none"  autocomplete="off" id="message-field" placeholder="Message"></textarea>     
+                        <button class=" btn btn-primary">Send</span>
+                    </div>
+                </form>
+            </main>
+                <div id="content" class=" container border-dark rounded">
+                    <table class="table table-striped">
+                        <tbody id="chat">
+                        </tbody>
+                    </table>
+                </div>
+        </div>
+
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="javascripts/client.js"></script>
+    </body>
+</html>
